@@ -1,0 +1,102 @@
+---
+const faqs = [
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  },
+  {
+    q: 'Lorem ipsum dolor sit amet consectetur adipiscing elit?',
+    a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.',
+  },
+];
+---
+
+<section id='faq' class='bg-white py-20'>
+  <div class='max-w-3xl mx-auto px-6 lg:px-8'>
+    <div class='text-center mb-12'>
+      <p
+        class='text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3'>
+        Questions
+      </p>
+      <h2 class='text-3xl lg:text-4xl font-bold text-gray-900'>FAQ</h2>
+    </div>
+
+    <div class='divide-y divide-gray-200 border-y border-gray-200'>
+      {
+        faqs.map((item, i) => (
+          <div class='faq-item'>
+            <button
+              class='faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left'
+              aria-expanded='false'>
+              <span class='font-medium text-gray-900 text-sm'>{item.q}</span>
+              <span class='faq-icon flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 text-sm font-bold leading-none'>
+                +
+              </span>
+            </button>
+            <div class='faq-answer overflow-hidden' style='max-height: 0;'>
+              <p class='text-gray-600 text-sm leading-relaxed pb-5'>{item.a}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers =
+      document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const answer = btn.nextElementSibling as HTMLElement;
+        const icon = btn.querySelector('.faq-icon');
+
+        // Close all
+        triggers.forEach((b) => {
+          b.setAttribute('aria-expanded', 'false');
+          const a = b.nextElementSibling as HTMLElement;
+          const ic = b.querySelector('.faq-icon');
+          if (a) a.style.maxHeight = '0';
+          if (ic) ic.textContent = '+';
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+          if (icon) icon.textContent = '−';
+        }
+      });
+    });
+
+    // Open third item by default
+    if (triggers[2]) triggers[2].click();
+  });
+</script>

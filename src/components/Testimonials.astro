@@ -1,0 +1,56 @@
+---
+const testimonials = [
+  {
+    name: 'Lorem Ipsum',
+    company: 'Company Name',
+    quote:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.',
+  },
+  {
+    name: 'Lorem Ipsum',
+    company: 'Company Name',
+    quote:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.',
+  },
+  {
+    name: 'Lorem Ipsum',
+    company: 'Company Name',
+    quote:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.',
+  },
+];
+---
+
+<section class='bg-white py-20'>
+  <div class='max-w-7xl mx-auto px-6 lg:px-8'>
+    <div class='text-center mb-12'>
+      <p
+        class='text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3'>
+        Client Reviews
+      </p>
+      <h2 class='text-3xl lg:text-4xl font-bold text-gray-900'>Testimonials</h2>
+    </div>
+
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      {
+        testimonials.map((t) => (
+          <div class='rounded-2xl border border-gray-200 bg-white p-8 flex flex-col'>
+            <div class='text-gray-300 text-5xl leading-none mb-4 select-none'>
+              &ldquo;
+            </div>
+            <p class='text-gray-600 text-sm leading-relaxed flex-1 mb-6'>
+              {t.quote}
+            </p>
+            <div class='pt-5 border-t border-gray-100'>
+              <div class='text-yellow-400 text-sm mb-2'>
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <div class='font-semibold text-gray-900 text-sm'>{t.name}</div>
+              <div class='text-gray-400 text-xs mt-0.5'>{t.company}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

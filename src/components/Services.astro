@@ -1,0 +1,51 @@
+---
+const services = [
+  {
+    name: 'Web Design',
+    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.',
+  },
+  {
+    name: 'SEO',
+    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.',
+  },
+  {
+    name: 'Web Development',
+    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.',
+  },
+  {
+    name: 'Custom Development',
+    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.',
+  },
+];
+---
+
+<section id='services' class='bg-white py-20'>
+  <div class='max-w-7xl mx-auto px-6 lg:px-8'>
+    <div class='text-center mb-12'>
+      <p
+        class='text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3'>
+        What We Do
+      </p>
+      <h2 class='text-3xl lg:text-4xl font-bold text-gray-900'>Services</h2>
+    </div>
+
+    <div class='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+      {
+        services.map((s) => (
+          <div class='rounded-2xl border border-gray-200 p-8 hover:shadow-md transition-shadow'>
+            <div class='w-11 h-11 rounded-full bg-blue-100 flex items-center justify-center mb-5'>
+              <div class='w-4 h-4 rounded-full bg-blue-600' />
+            </div>
+            <h3 class='text-lg font-bold text-gray-900 mb-3'>{s.name}</h3>
+            <p class='text-gray-500 text-sm leading-relaxed mb-5'>{s.copy}</p>
+            <a
+              href='#contact'
+              class='text-blue-600 text-sm font-semibold hover:text-blue-700 transition-colors'>
+              Learn more →
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

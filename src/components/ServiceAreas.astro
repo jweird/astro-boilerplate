@@ -1,0 +1,54 @@
+---
+const areas = [
+  'Irvine',
+  'Newport Beach',
+  'Costa Mesa',
+  'Huntington Beach',
+  'Anaheim',
+  'Santa Ana',
+  'Orange',
+  'Fullerton',
+  'Garden Grove',
+  'Laguna Beach',
+  'Mission Viejo',
+  'Lake Forest',
+  'Yorba Linda',
+  'Brea',
+  'Tustin',
+  'Aliso Viejo',
+  'San Clemente',
+  'Dana Point',
+  'Laguna Niguel',
+  'Rancho Santa Margarita',
+];
+---
+
+<section class='bg-gray-50 py-20'>
+  <div class='max-w-5xl mx-auto px-6 lg:px-8 text-center'>
+    <p
+      class='text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3'>
+      We Serve
+    </p>
+    <h2 class='text-3xl lg:text-4xl font-bold text-gray-900 mb-10'>
+      Service Areas
+    </h2>
+
+    <div class='flex flex-wrap justify-center gap-3'>
+      {
+        areas.map((area) => (
+          <a
+            href={`#${area.toLowerCase().replace(/\s+/g, '-')}`}
+            class='rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-700 hover:border-blue-500 hover:text-blue-600 transition-colors'>
+            {area}
+          </a>
+        ))
+      }
+    </div>
+
+    <a
+      href='#'
+      class='mt-8 inline-block text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors'>
+      View all areas →
+    </a>
+  </div>
+</section>
