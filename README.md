@@ -1,4 +1,4 @@
-# WebPlug Boilerplate
+# Astro Boilerplate
 
 A clean, minimal landing page boilerplate for web agency projects. Built with Astro and Tailwind CSS v4.
 
